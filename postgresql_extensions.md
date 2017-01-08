@@ -8,7 +8,7 @@ We use these extensions:
   * [dblink](http://www.postgresql.org/docs/current/static/dblink.html): connect to other databases
   * [hstore](http://www.postgresql.org/docs/current/static/hstore.html): hstore for storing sets of key-value pairs
   * [intarray](http://www.postgresql.org/docs/current/static/intarray.html): integer array functions and operators
-  * pgcrypto
+  * [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html): cryptographic functions
   * [postpic](http://github.com/drotiro/postpic): image processing
   * [postgis](http://postgis.refractions.net/): geographic information system
   * [prefix](http://pgfoundry.org/projects/prefix): prefix matching for text searh
