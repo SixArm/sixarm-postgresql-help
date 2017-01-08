@@ -2,9 +2,9 @@
 
 Verify PostgresSQL installed and at least version 9.6.
 
-   $ brew info postgresql
-   postgresql: stable 9.6.1 (bottled), HEAD
-   ...
+    $ brew info postgresql
+    postgresql: stable 9.6.1 (bottled), HEAD
+    ...
 
 Verify there is a Cellar:
 
