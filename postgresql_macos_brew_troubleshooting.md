@@ -1,4 +1,4 @@
-# PostgreSQL help for macOS and brew
+# PostgreSQL macOS brew troubleshooting
 
 Verify PostgresSQL installed and at least version 9.6.
 
@@ -15,6 +15,11 @@ Verify the postgres directory exists and is correctly owned by admin:
 
     $ ls -ladg /usr/local/var/postgres
     drwxr--r--  2 admin  68 Dec  5 03:20 /usr/local/var/postgres
+
+Verify the postgres user exists:
+
+    $ /usr/local/Cellar/postgresql/9.6.1/bin/createuser -s postgres
+    createuser: creation of new role failed: ERROR:  role "postgres" already exists
 
 Do you have a conflict with Postgres.app?
 
@@ -39,3 +44,4 @@ Nuclear option: totally delete all the existing databases, then recreate a fresh
     $ initdb /usr/local/var/postgres -E utf8
     $ /usr/local/Cellar/postgresql/9.6.1/bin/createuser -s postgres
     $ pg_ctl -D /usr/local/var/postgres -l logfile start
+    $ psql -U postgres
