@@ -4,30 +4,35 @@ See https://www.postgresql.org/docs/current/static/contrib.html
 
 We use these extensions:
 
-  * [adminpack](http://www.postgresql.org/docs/current/static/dblink.html): administration and management tools
-  * [auth_delay](https://www.postgresql.org/docs/current/static/auth-delay.html): authentication delay to make password attacks harder
-  * [auto_explain](https://www.postgresql.org/docs/current/static/auto-explain.html): automatically explain execution plans of slow statements
-  * [bloom](https://www.postgresql.org/docs/current/static/bloom.html): bloom filter data structure to test whether an element is in a set
+  * [adminpack](http://www.postgresql.org/docs/current/static/dblink.html): administration and management tools.
+  * [auth_delay](https://www.postgresql.org/docs/current/static/auth-delay.html): authentication delay to make password attacks harder.
+  * [auto_explain](https://www.postgresql.org/docs/current/static/auto-explain.html): automatically explain execution plans of slow statements.
+  * [bloom](https://www.postgresql.org/docs/current/static/bloom.html): bloom filter data structure to test whether an element is in a set.
   * [citext](https://www.postgresql.org/docs/current/static/citext.html): case-insensitive character string type, citext.
-  * [dblink](http://www.postgresql.org/docs/current/static/dblink.html): connect to other databases
-  * [hstore](http://www.postgresql.org/docs/current/static/hstore.html): hstore for storing sets of key-value pairs
-  * [intarray](http://www.postgresql.org/docs/current/static/intarray.html): integer array functions and operators
+  * [cube](https://www.postgresql.org/docs/current/static/cube.html): cube data type for representing multidimensional space.
+  * [dblink](http://www.postgresql.org/docs/current/static/dblink.html): connect to other databases.
+  * [dict_xsyn](https://www.postgresql.org/docs/current/static/dict_xsyn.html): extended synonym dictionary for full-text search.
+  * [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html): calculate great circle distances on the surface of the Earth.
+  * [file_fdw](https://www.postgresql.org/docs/current/static/file_fdw.html): file foreign-data wrapper for the server's file system.
+  * [hstore](http://www.postgresql.org/docs/current/static/hstore.html): hstore for storing sets of key-value pairs.
+  * [intarray](http://www.postgresql.org/docs/current/static/intarray.html): integer array functions and operators.
   * [multicorn](http://multicorn.org/): link to other systems to retrieve data via Foreign Data Wrappers (FDWs).
   * [pg_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html]: trigram matching for text search.
-  * [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html): cryptographic functions
-  * [pgsphere](http://pgsphere.projects.postgresql.org/): spherical coordinates
+  * [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html): cryptographic functions.
+  * [pgsphere](http://pgsphere.projects.postgresql.org/): spherical coordinates.
   * [pgstattuple](https://www.postgresql.org/docs/current/static/pgstattuple.html): tuple statistics functions.
-  * [postgis](http://postgis.refractions.net/): geographic information system
-  * [postpic](http://github.com/drotiro/postpic): image processing
-  * [prefix](http://pgfoundry.org/projects/prefix): prefix matching for text searh
-  * [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html): generate universally unique identifiers (UUIDs)
-  * [xml2](https://www.postgresql.org/docs/current/static/xml2.html): XML XPath querying and XSLT functionality
+  * [postgis](http://postgis.refractions.net/): geographic information system.
+  * [postpic](http://github.com/drotiro/postpic): image processing.
+  * [prefix](http://pgfoundry.org/projects/prefix): prefix matching for text searh.
+  * [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html): generate universally unique identifiers (UUIDs).
+  * [xml2](https://www.postgresql.org/docs/current/static/xml2.html): XML XPath querying and XSLT functionality.
 
 We skip these additional supplied modules:
 
-  * [btree_gin](https://www.postgresql.org/docs/current/static/btree-gin.html): b-tree GIN operator for fast search testing
-  * [btree_gist](https://www.postgresql.org/docs/current/static/btree-gist.html): b-tree GIST operator for fast search testing
-  * [chkpass](https://www.postgresql.org/docs/current/static/chkpass.html): check passwords using simple encryption
+  * [btree_gin](https://www.postgresql.org/docs/current/static/btree-gin.html): b-tree GIN operator for fast search testing.
+  * [btree_gist](https://www.postgresql.org/docs/current/static/btree-gist.html): b-tree GIST operator for fast search testing.
+  * [chkpass](https://www.postgresql.org/docs/current/static/chkpass.html): check passwords using simple encryption.
+  * [dict_int](https://www.postgresql.org/docs/current/static/dict_int.html): dictionary integer search example.
 
 We use this code to create the exenstions:
 
@@ -36,7 +41,11 @@ We use this code to create the exenstions:
     psql postgres -c 'CREATE EXTENSION "auto_explain";'
     psql postgres -c 'CREATE EXTENSION "bloom";'
     psql postgres -c 'CREATE EXTENSION "citext";'
+    psql postgres -c 'CREATE EXTENSION "cube";'
     psql postgres -c 'CREATE EXTENSION "dblink";'
+    psql postgres -c 'CREATE EXTENSION "dict_xsyn;'
+    psql postgres -c 'CREATE EXTENSION "earthdistance;'
+    psql postgres -c 'CREATE EXTENSION "file_fdw;'
     psql postgres -c 'CREATE EXTENSION "hstore";'
     psql postgres -c 'CREATE EXTENSION "intarray";'
     psql postgres -c 'CREATE EXTENSION "multicorn";'
@@ -50,7 +59,6 @@ We use this code to create the exenstions:
     psql postgres -c 'CREATE EXTENSION "uuid-ossp";'
     psql postgres -c 'CREATE EXTENSION "xml2";'
 
-
 Add to `postgresql.conf` file:
 
     shared_preload_libraries = 'auth_delay'
@@ -58,11 +66,6 @@ Add to `postgresql.conf` file:
 
 To do:
 
-* [cube](https://www.postgresql.org/docs/current/static/cube.html)
-* [dict_int](https://www.postgresql.org/docs/current/static/dict_int.html)
-* [dict_xsyn](https://www.postgresql.org/docs/current/static/dict_xsyn.html)
-* [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html)
-* [file_fdw](https://www.postgresql.org/docs/current/static/file_fdw.html)
 * [fuzzystrmatch](https://www.postgresql.org/docs/current/static/fuzzystrmatch.html)
 * [intagg](https://www.postgresql.org/docs/current/static/intagg.html)
 * [isn](https://www.postgresql.org/docs/current/static/isn.html)
