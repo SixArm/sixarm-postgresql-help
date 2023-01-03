@@ -1,15 +1,51 @@
 # PostgreSQL macOS brew troubleshooting
 
-Verify PostgresSQL installed and at least version 9.6.
 
-    $ brew info postgresql
-    postgresql: stable 9.6.1 (bottled), HEAD
-    ...
+### Verify brew formula
 
-Verify there is a Cellar:
+List:
 
-    $ ls /usr/local/Cellar/postgresql
-    9.6.1
+```sh
+% brew list --version postgresql
+postgresql@14 14.6
+```
+
+Verify version:
+
+```sh
+% brew info postgresql@14
+==> postgresql@14: stable 14.6 (bottled)
+```
+
+
+### Verify brew cellar
+
+Where does brew expect to find postgres?
+
+```sh
+% brew --cellar postgresql@14
+/opt/homebrew/Cellar/postgresql@14
+```
+
+Verify the cellar directory exists:
+
+```sh
+% ls $(brew --cellar postgresql@14)
+14.6
+```
+
+Save the info for our next steps:
+
+```sh
+% cellar=$(brew --cellar postgresql@14)
+% version=$(brew list --version postgresql | head -1 | awk '{print $2}')
+% path="$cellar/$version"
+% echo $path
+/opt/homebrew/Cellar/postgresql@14/14.6
+```
+
+
+### Verify postgres directory
 
 Verify the postgres directory exists and is correctly owned by admin:
 
@@ -20,11 +56,6 @@ Verify there is a plist file:
 
     $ ls /usr/local/opt/postgresql/*.plist
     /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist
-
-Verify the postgres user exists:
-
-    $ /usr/local/Cellar/postgresql/9.6.1/bin/createuser -s postgres
-    createuser: creation of new role failed: ERROR:  role "postgres" already exists
 
 Do you have a conflict with Postgres.app?
 
@@ -42,6 +73,16 @@ Verify you can connect:
 Verify you can start:
 
     $ postgres -D /usr/local/var/postgres
+
+
+### Verify postgres user
+
+Verify the postgres user exists:
+
+```sh
+% $path/bin/createuser -s postgres
+createuser: creation of new role failed: ERROR:  role "postgres" already exists
+```
 
 
 ## Nuclear option
