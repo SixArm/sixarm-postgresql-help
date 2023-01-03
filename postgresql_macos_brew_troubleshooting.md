@@ -1,7 +1,18 @@
 # PostgreSQL macOS brew troubleshooting
 
 
-### install
+### List
+
+Run:
+
+```sh
+% brew list | grep postgresql
+```
+
+If there's more than one postgresql, then you may want to fix that first.
+
+
+### Install
 
 Run:
 
