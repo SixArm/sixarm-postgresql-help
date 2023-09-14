@@ -230,3 +230,21 @@ Start the postgres database server in the background, using typical Unix syntax,
 ```sh
 $HOME/opt/postgresql/16.0/bin/postgres -D $HOME/data/example >logfile 2>&1 &
 ```
+
+
+## psql
+
+Connect to the running postgres database server:
+
+```sh
+$/opt/postgresql/16.0/bin/psql -d postgres
+```
+
+You should see:
+
+```psql
+psql (16.0)
+Type "help" for help.
+
+postgres=# 
+```
