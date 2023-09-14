@@ -145,6 +145,13 @@ make world
 make install-world
 ```
 
+Verify:
+
+```sh
+$HOME/opt/postgresql/16.0/bin/postgres --version
+postgres (PostgreSQL) 16.0
+```
+
 
 ## macOS
 
@@ -171,4 +178,47 @@ export PATH
 
 MANPATH="$MANPATH:$HOME/opt/postgresql/16.0/share/man"
 export MANPATH
+```
+
+
+## Data
+
+For this example, we create custom data directory:
+
+```sh
+mkdir $HOME/data/example
+```
+
+Initialize a new database:
+
+```sh
+$HOME/opt/postgresql/16.0/bin/initdb -D $HOME/data/example
+```
+
+You should see a "Success" message.
+
+Start the postgres database server in the foreground, to verify it works:
+
+```sh
+$HOME/opt/postgresql/16.0/bin/postgres -D $HOME/data/example 
+```
+
+You should see log messages such as:
+
+```txt
+database system is ready to accept connections
+```
+
+Press ctrl-c to quit.
+
+You should see log messages such as:
+
+```txt
+database system is shut down
+```
+
+Start the postgres database server in the background, using typical Unix syntax, and writing to a logfile:
+
+```sh
+$HOME/opt/postgresql/16.0/bin/postgres -D $HOME/data/example >logfile 2>&1 &
 ```
