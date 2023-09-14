@@ -4,13 +4,26 @@ How to install PostgreSQL via source code on macOS with these configurations:
 
 * PostgreSQL 16.0 with a custom directory prefix
 
-* Options for ICU, Bonjour, SSL OpenSSL, UUID e2fs
+* Options for ICU, Bonjour, lz4, zstd, UUID e2fs
 
 * macOS Ventura 13.5
   
 * Homebrew 4.1 for installing some system dependencies (e.g. ICU)
 
 Feedback welcome.
+
+
+## This is for experimenting
+
+This guide is intended for experimenting such as:
+
+* Trying PostgreSQL 16.0 on your own personal computer
+
+* Installing PostgreSQL 16.0 in your own home directory
+  
+* Without affecting your system PostgreSQL database server
+   
+* Without affecting your existing databases
 
 
 ## Get PostgreSQL source code
@@ -99,10 +112,6 @@ These configuration options are the ones we prefer for this installation on a de
 
 <dd>Build with support for Bonjour automatic service discovery. This requires Bonjour support in your operating system. Recommended on macOS.</dd>
 
-<dt>--with-ssl=openssl</dt>
-
-<dd>Build with support for SSL (encrypted) connections. This requires the OpenSSL package to be installed. configure will check for the required header files and libraries to make sure that your OpenSSL installation is sufficient before proceeding.</dd>
-
 <dt>--with-uuid=e2fs</dt>
 
 <dd>Build the uuid-ossp module (which provides functions to generate UUIDs), using the e2fs UID library created by the e2fsprogs project.</dd>
@@ -132,10 +141,9 @@ Configure:
 ./configure \
 --prefix=$HOME/postgresql/16.0 \
 --with-bonjour \
-#--with-lz4 \
-#--with-zstd \
-#--with-ssl=openssl \
-#--with-uuid=e2fs \
+--with-lz4 \
+--with-zstd \
+--with-uuid=e2fs
 ```
 
 Make everything, including the documentation (HTML pages and man pages), and the additional modules (contrib):
