@@ -1,6 +1,6 @@
-# Install PostgreSQL 16.0 with source code on macOS
+# Install PostgreSQL 16.0 via source code on macOS
 
-How to install PostgreSQL using source code on macOS with these configurations:
+How to install PostgreSQL via source code on macOS with these configurations:
 
 * PostgreSQL 16.0 with a custom directory prefix
 
@@ -9,6 +9,8 @@ How to install PostgreSQL using source code on macOS with these configurations:
 * macOS Ventura 13.5
   
 * Homebrew 4.1 for installing some system dependencies (e.g. ICU)
+
+Feedback welcome.
 
 
 ## Get PostgreSQL source code
@@ -114,7 +116,6 @@ These configuration options are the ones we prefer for this installation on a de
 </dl>
 
 
-
 ## Configure
 
 Create a custom destination directory:
@@ -129,8 +130,8 @@ Configure:
 ./configure \
 --prefix=$HOME/postgresql/16.0 \
 --with-bonjour \
---with-lz4 \
---with-zstd \
+#--with-lz4 \
+#--with-zstd \
 #--with-ssl=openssl \
 #--with-uuid=e2fs \
 ```
@@ -156,6 +157,7 @@ Create the typical `postgres` user
 ```sh
 sudo dscl . -create /Users/postgres
 ```
+
 
 ## Environment
 

@@ -2,5 +2,12 @@
 
 PostgreSQL database help for our notes.
 
-* [postgresql_extensions.md](postgresql_extensions.md)
-* [postgresql_macos_brew_troubleshooting.md](postgresql_macos_brew_troubleshooting.md)
+* [postgresql-extensions](postgresql-extensions)
+
+* [postgresql-debian-clusters](postgresql-debian-clusters)
+
+* [postgresql-macos-brew-troubleshooting](postgresql_macos_brew_troubleshooting.md)
+
+Install help:
+
+* [install-postgresql-16.0-via-source-code-on-macos](install/install-postgresql-16.0-via-source-code-on-macos)
