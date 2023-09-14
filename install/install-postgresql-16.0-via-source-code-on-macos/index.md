@@ -52,7 +52,8 @@ brew link icu4c --force
 Append the ICU packages to the env var:
 
 ```sh
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$(brew --cellar)/opt/icu4c/lib/pkgconfig"
+PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$(brew --cellar)/opt/icu4c/lib/pkgconfig"
+export PKG_CONFIG_PATH
 ```
 
 
@@ -79,7 +80,8 @@ Output example:
 Set the PostgreSQL system root:
 
 ```sh
-export PG_SYSROOT=$(xcrun --show-sdk-path)
+PG_SYSROOT=$(xcrun --show-sdk-path)
+export PG_SYSROOT
 ```
 
 
